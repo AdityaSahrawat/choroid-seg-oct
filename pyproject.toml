@@ -1,0 +1,33 @@
+[project]
+name = "choroid-seg-oct"
+version = "0.1.0"
+description = "Segmentation of the choroid and its thickness measurement using retinal OCT Scans"
+readme = "README.md"
+requires-python = ">=3.11,<3.13"
+dependencies = [
+    "albumentations>=2.0.0",
+    "matplotlib>=3.8.0",
+    "numpy>=1.26.0",
+    "opencv-python>=4.9.0",
+    "openpyxl>=3.1.5",
+    "pandas>=2.2.0",
+    "pyyaml>=6.0.0",
+    "scikit-image>=0.22.0",
+    "scipy>=1.12.0",
+    "segmentation-models-pytorch>=0.3.4",
+    "tensorboard>=2.16.0",
+    "torch>=2.2.0",
+    "torchvision>=0.17.0",
+    "tqdm>=4.66.0",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.0.0",
+]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+filterwarnings = [
+    "ignore:Error fetching version info:UserWarning:albumentations",
+]

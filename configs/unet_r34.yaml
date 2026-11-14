@@ -1,0 +1,49 @@
+name: "unet_r34"
+seed: 42
+device: "auto"
+
+data:
+  train_split: "data/splits/train.txt"
+  val_split: "data/splits/val.txt"
+  test_split: "data/splits/test.txt"
+  target_size: 512
+  choroid_pixel_val: 160
+  mask_tolerance: 0
+  compute_boundary_weights: false
+  boundary_w0: 5.0
+  boundary_sigma: 5.0
+  normalize_mean: 0.485
+  normalize_std: 0.229
+  num_workers: 0
+
+preprocess:
+  use_clahe: true
+  clip_limit: 2.0
+  tile_grid_size: [8, 8]
+  denoise_method: null
+
+model:
+  model_type: "unet"
+  encoder_name: "resnet34"
+  encoder_weights: "imagenet"
+  in_channels: 1
+  classes: 1
+  decoder_attention_type: null
+
+training:
+  batch_size: 8
+  epochs: 20
+  lr: 0.0003
+  min_lr: 0.000001
+  weight_decay: 0.0001
+  early_stopping_patience: 5
+  bce_weight: 1.0
+  dice_weight: 1.0
+
+thickness:
+  um_per_px: null  # When null, thickness is reported strictly in pixels
+  smooth_window: null  # Raw boundaries avoid flattening the anatomical foveal dip
+  poly_order: 2
+
+threshold: 0.5
+output_dir: "outputs"

@@ -1,0 +1,28 @@
+# Virtual environment
+.venv/
+venv/
+ENV/
+
+# Byte-compiled / optimized files
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+
+# Data (keep raw data out of git, but track split lists)
+data/raw/*
+!data/raw/.gitkeep
+data/processed/*
+!data/processed/.gitkeep
+
+# Outputs and logs
+outputs/*
+!outputs/.gitkeep
+runs/
+*.log
+
+# OS / Editor files
+.DS_Store
+.vscode/
+.idea/
+
